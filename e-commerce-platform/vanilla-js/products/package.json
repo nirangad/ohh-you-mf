@@ -1,0 +1,22 @@
+{
+  "name": "products-mfe",
+  "version": "1.0.0",
+  "description": "Product Listing Component",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "webpack serve"
+  },
+  "keywords": [
+    "product-listing-mfe"
+  ],
+  "author": "Niranga De Silva",
+  "license": "ISC",
+  "devDependencies": {
+    "@webpack-cli/generators": "^3.0.7",
+    "html-webpack-plugin": "^5.6.3",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  }
+}
