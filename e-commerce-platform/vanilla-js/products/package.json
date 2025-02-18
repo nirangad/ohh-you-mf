@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "start:dev": "NODE_ENV=development npm start",
+    "start:prod": "NODE_ENV=production npm start"
   },
   "keywords": [
     "product-listing-mfe"
@@ -18,5 +20,8 @@
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.5.0"
   }
 }

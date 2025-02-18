@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker';
+
 const products = [
   {
     name: "Milk (1 Liter)",
@@ -336,16 +338,15 @@ const products = [
   },
 ];
 
-console.table(products);
+console.warn("[Products application]", process.env.NODE_ENV);
 
-export const render = () => {
-  const productList = document.getElementById("product-list");
-  if (productList) {
-    productList.innerHTML = products.map((product) => {
+export const render = (el = document.getElementById('product-list')) => {
+  if (el) {
+    el.innerHTML = products.map((product) => {
       return `
         <div class="product-card" style="border: 1px solid #ccc; padding: 10px 15px; margin: 10px; width: calc(19% - 40px); box-sizing: border-box; background-color: #f2f2f2; border-radius: 3px;">
           <img src="${product.image_url}" alt="${product.name}" style="width: 100%; height: auto;" />
-          <h3>${product.name}</h3>
+          <h3>${product.name} [FAKER UUID: ${faker.string.uuid()}]</h3>
           <p>${product.short_description}</p>
           <p>Price: $${product.price}</p>
         </div>
@@ -353,15 +354,20 @@ export const render = () => {
     }).join('');
 
     // Add hover effect using JavaScript
-    const style = document.createElement('style');
-    style.innerHTML = `
+    const styles = document.createElement('style');
+    styles.innerHTML = `
       .product-card:hover {
         background-color: #e6f7ff;
       }
     `;
-    document.head.appendChild(style);
+    document.head.appendChild(styles);
   }
 };
 
+// Call the render function when the products application is loaded
+// if (process.env.NODE_ENV === 'development') {
+//   render();
+// }
+
 // Ensure the render function is called when the products application is loaded
-render();
+export default { render };

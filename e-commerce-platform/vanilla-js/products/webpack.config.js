@@ -1,7 +1,7 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+import path from "path";
+import { fileURLToPath } from "url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import ModuleFederationPlugin from 'webpack/lib/container/ModuleFederationPlugin.js';
+import ModuleFederationPlugin from "webpack/lib/container/ModuleFederationPlugin.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,11 +20,11 @@ export default {
   },
   plugins: [
     new ModuleFederationPlugin({
-        name: "products",
-        filename: "remoteEntry.js",
-        exposes: {
-            "./ProductsIndex": "./src/index",
-        }
+      name: "products",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./ProductsIndex": "./src/index",
+      },
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",

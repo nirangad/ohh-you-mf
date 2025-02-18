@@ -1,7 +1,13 @@
 import("products/ProductsIndex")
-  .then((ProductsIndex) => {
-    console.log("Product Index Loaded:", ProductsIndex);
+  .then(({ render: renderProductsIndex }) => {
+    renderProductsIndex();
   })
   .catch((error) => console.error("Error loading ProductsIndex:", error));
 
-console.log("HOST LOADED: In bootstrap.js");
+import("cart/CartShow")
+  .then((CartShow) => {
+    console.log("Cart Loaded:", CartShow);
+  })
+  .catch((error) => console.error("Error loading ProductsIndex:", error));
+
+console.warn("[Container application]", process.env.NODE_ENV);
