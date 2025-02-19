@@ -23,8 +23,9 @@ export default {
       name: "cart",
       filename: "remoteEntry.js",
       exposes: {
-        "./CartShow": "./src/index",
-      }
+        "./CartShow": "./src/bootstrap",
+      },
+      shared: ['@faker-js/faker'],
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",

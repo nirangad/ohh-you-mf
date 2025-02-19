@@ -1,12 +1,12 @@
 import("products/ProductsIndex")
   .then(({ render: renderProductsIndex }) => {
-    renderProductsIndex();
+    renderProductsIndex(document.getElementById("product-list-mfe"));
   })
   .catch((error) => console.error("Error loading ProductsIndex:", error));
 
 import("cart/CartShow")
-  .then((CartShow) => {
-    console.log("Cart Loaded:", CartShow);
+  .then(({render: renderCartShow}) => {
+    renderCartShow(document.getElementById("shopping-cart-mfe"));
   })
   .catch((error) => console.error("Error loading ProductsIndex:", error));
 
